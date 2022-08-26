@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base.css">
+
+  <title></title>
+</head>
+
+
+
+<body>
+  <script>
+    // const superman = {
+    //   name: "clark",
+    //   age: 30,
+    // }
+    // console.log(superman.name);
+    // console.log(superman['age']);
+    // console.log(superman.age);
+
+    // superman.hairColor = "black"; // object에 내용을 추가
+    // superman['hobby'] = "football"; // object에 내용을 추가
+    // superman.hobby = "football"; // object에 내용을 추가
+    // delete superman.age; // 내용을 삭제
+    // console.log(superman);
+
+
+    // function makeObject(name, age) {
+    //   return {
+    //     name: name,
+    //     age: age,
+    //     hobby: "football"
+    //   };
+    // }
+
+    // const Mike = makeObject("mike", 30);
+    // console.log(Mike);
+
+    //in
+    // function isAdult(user) {
+    //   if (!('age' in user) || //user에 age가 없거나. 여기서 in 은 오브젝트에 있는지 없는지 확인하는 것.
+    //     user.age < 20) { // 20살미만이거나
+    //     return false;
+    //   } else {
+    //     return true;
+    //   }
+    // }
+
+    // const Mike = {
+    //   name: "Mike",
+    //   age: 30
+    // }
+
+    // const Jane = {
+    //   name: "Jane"
+    // }
+
+    // console.log(isAdult(Mike));
+    // console.log(isAdult(Jane));
+
+    //method
+    // let boy = {
+    //   name: "mike",
+    //   showName: function () { //펑션. 함수
+    //     console.log(this.name) // this는 해당객체(boy)를 가리킴. 이것은 boy.name과 같다.
+    //   }
+    // }
+
+    // boy.showName();
+
+    // 생성자함수
+    function Item(title, price) {
+      this.title = title,
+      this.price = price,
+      this.showPrice = function(){
+        console.log(`가격은 ${price}원 입니다.`);
+      }
+    }
+
+  const item1 = new Item("인형", 3000);
+  const item2 = new Item("가방", 4000);
+  const item3 = new Item("지갑", 9000);
+
+  console.log(item1, item2, item3);
+
+  item3.showPrice();
+
+  </script>
+</body>
+
+</html>

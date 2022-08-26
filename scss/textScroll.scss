@@ -1,0 +1,68 @@
+// html,
+// body {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   width: 100%;
+//   height: 100%;
+//   background-color: #f2f2f2;
+// }
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+html,
+body {
+  background-color: #000;
+  width: 100%;
+  font-family: "Pacifico", cursive;
+  overflow-x: hidden;
+
+}
+
+.wrap {
+  height: 200vh;
+}
+
+h2 {
+  text-align: center;
+  margin: 50px;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+}
+
+.cover {
+  width: 100vw;
+  margin-bottom: 10rem;
+  display: flex;
+
+  &.cover1 {
+    margin-top: 5vh;
+    transform: rotate(-2deg);
+    background-color: #ff3796;
+  }
+
+  &.cover2 {
+    transform: rotate(2deg);
+    background-color: #ecfe04;
+    justify-content: flex-end;
+  }
+
+  &.cover3 {
+    transform: rotate(-2deg);
+    background-color: #5800ff;
+  }
+
+  &.cover4 {
+    transform: rotate(2deg);
+    background-color: #33ff33;
+    justify-content: flex-end;
+    margin-bottom: 100vh;
+  }
+
+  p {
+    display: flex;
+    padding: 3rem 0;
+    font-size: 5rem;
+    color: #000;
+  }
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/rara_clone.css">
+  <title></title>
+</head>
+
+
+<body>
+  <div class="start-screen">
+    <h1>SCROLL DOWN</h1>
+  </div>
+
+  <section class="gap"></section>
+
+  <section class="scaleWrap">
+    <div class="fixeBox">
+      <div class="theBg">
+      </div>
+    </div>
+
+    <p class="loremTitle">TITLE</p>
+    <div class="rotateLi_wrap">
+      <ul class="rotateLi">
+        <li style="transform: rotate(-150deg);">
+          <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+          </a>
+        </li>
+        <li style="transform: rotate(-135deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+          </a></li>
+        <li style="transform: rotate(-120deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-105deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-90deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-75deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-60deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-45deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-30deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(-15deg);"> <a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(0deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(15deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(30deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(45deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(60deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(75deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(90deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(105deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(120deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card01.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(135deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card02.jpg" alt="">
+
+          </a></li>
+        <li style="transform: rotate(150deg);"><a href="#!">
+            <div class="overlay"></div>
+            <img src="images/card03.jpg" alt="">
+
+          </a></li>
+
+      </ul>
+    </div>
+    <div class="viewBtn">
+      <a href="#!">View More</a>
+    </div>
+  </section>
+
+  <section class="hands">
+    <div class="hands__wrap">
+      <div class="hands__left"><img src="images/leftHand.png" alt=""></div>
+      <div class="hands__right"><img src="images/rightHand.png" alt=""></div>
+    </div>
+  </section>
+
+  <script>
+    const theBg = document.querySelector(".theBg");
+    window.addEventListener("scroll", () => {
+      let currentScale = theBg.getBoundingClientRect().width;
+      let scrollScale = scrollY / 65;
+      theBg.style.transform = `scale(${scrollScale})`;
+    });
+
+    const overlay = document.querySelectorAll(".rotateLi li a");
+    const rotateLi = document.querySelector(".rotateLi");
+    let deg = 0;
+    let start = true;
+
+    function rotating() {
+      deg += 0.1;
+      let degMax = Math.ceil(deg);
+      if (degMax >= 360) {
+        deg = 0;
+      };
+
+      rotateLi.style.transform = `rotate(${deg}deg)`;
+      let play;
+
+      if (start) {
+        let play = requestAnimationFrame(rotating);
+      } else if (!start) {
+        cancelAnimationFrame(play);
+      };
+    };
+    rotating();
+
+
+    let downX;
+    let upX;
+    let positionX;
+    let currentX;
+    let clicked = false;
+
+    overlay.forEach(overlay => {
+      overlay.addEventListener("mouseenter", () => {
+        start = false;
+
+        overlay.addEventListener("mousedown", (e) => {
+          downX = e.clientX;
+          clicked = true;
+        });
+
+        overlay.addEventListener("mouseup", (e) => {
+          // upX = e.clientX;
+          clicked = false;
+          console.log(clicked);
+        });
+
+        overlay.addEventListener("mousemove", (e) => {
+          if (clicked) {
+            currentX = e.clientX;
+            console.log(currentX);
+            positionX = deg + currentX;
+            rotateLi.style.transform = `rotate(${positionX}deg)`;
+          };
+        });
+
+      });
+      overlay.addEventListener("mouseleave", () => {
+        start = true;
+        let play = requestAnimationFrame(rotating);
+      });
+    });
+
+
+
+
+
+
+
+    // 손모양
+    const leftHand = document.querySelector(".hands__left");
+    const rightHand = document.querySelector(".hands__right");
+
+    window.addEventListener("scroll", () => {
+      let moveHand = scrollY / 100;
+      leftHand.style.transform = `translateX(${Math.ceil(moveHand)}%)`;
+      rightHand.style.transform = `translateX(-${Math.ceil(moveHand)}%)`;
+    });
+  </script>
+</body>
+
+</html>

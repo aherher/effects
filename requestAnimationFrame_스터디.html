@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base.css">
+
+  <title></title>
+</head>
+
+<style>
+  .ball {
+    width: 120px;
+    height: 120px;
+    background-color: red;
+    border-radius: 100%;
+    position: absolute;
+    transition: all 0.5s;
+  }
+
+  .ball.on {
+
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .value {
+    font-size: 50px;
+    text-align: center;
+  }
+</style>
+
+
+
+<body>
+  <div class="ball"></div>
+  <div class="value"></div>
+
+  <script>
+    const ball = document.querySelector(".ball");
+    const value = document.querySelector(".value");
+    let xPos = 0;
+
+    ball.addEventListener("click", () => {
+      ball.classList.toggle("on");
+    })
+
+    function render() {
+      value.innerHTML = xPos;
+      xPos++;
+      ball.style.transform = `translateX(${xPos}px)`;
+
+      let anima = requestAnimationFrame(render);
+
+      if (xPos > 300) {
+        cancelAnimationFrame(anima);
+      }
+    };
+    render();
+  </script>
+</body>
+
+</html>

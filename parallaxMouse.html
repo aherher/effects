@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Particle Network</title>
+
+</head>
+<style>
+  body,
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .wrap {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: url(images/bg.png) no-repeat center;
+    background-size: cover;
+  }
+
+  dl {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    width: 90%;
+    color: #fff;
+  }
+
+  dt {
+    font-size: clamp(50px, 6vw, 90px);
+    font-weight: 700;
+    letter-spacing: 0.3em;
+
+  }
+
+  dd {
+    font-size: clamp(25px, 6vw, 60px);
+    letter-spacing: 0.3em;
+    margin-inline-start: 0;
+  }
+
+  .images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <dl class="object" data-value="1">
+      <dt>SPACE</dt>
+      <dd>BACKGROUND</dd>
+    </dl>
+    <img class="object images" data-value="3" src="images/1.png" alt="">
+    <img class="object images" data-value="8" src="images/2.png" alt="">
+    <img class="object images" data-value="6" src="images/3.png" alt="">
+    <img class="object images" data-value="-1" src="images/4.png" alt="">
+    <img class="object images" data-value="4" src="images/5.png" alt="">
+    <img class="object images" data-value="-3" src="images/6.png" alt="">
+    <img class="object images" data-value="2" src="images/7.png" alt="">
+    <img class="object images" data-value="4" src="images/8.png" alt="">
+    <img class="object images" data-value="2" src="images/9.png" alt="">
+
+  </div>
+
+  <script>
+    const onjects = document.querySelectorAll(".object");
+    window.addEventListener("mousemove", (e) => {
+
+      onjects.forEach(obj => {
+        const datas = obj.getAttribute("data-value");
+        let positionX = e.clientX * datas / 100;
+        let positionY = e.clientY * datas / 100;
+        obj.style.transform = `translate(${-positionX}px, ${-positionY}px)`;
+      });
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/base.css">
+
+  <title></title>
+</head>
+
+
+
+<body>
+  <div class="box"></div>
+  <div class="line"></div>
+  <p class="showSize"></p>
+
+  <script>
+    const batman = {
+      name: "bruce",
+      age: 35
+    }
+
+    batman.weight = 85;
+
+    const boxSpec = {
+      width: 300,
+      height: 250
+    }
+
+    boxSpec.backgroundColor = "red";
+    console.log(boxSpec);
+
+    const theBox = document.querySelector(".box");
+    theBox.style.width = `${boxSpec.width}px`;
+    theBox.style.height = `${boxSpec.height}px`;
+    theBox.style.backgroundColor = boxSpec.backgroundColor;
+
+
+
+
+    const liner = {
+      width: 100,
+      height: 2,
+      backgroundColor: `#000`
+    }
+
+    // console.log(liner);
+
+    const theLine = document.querySelector(".line");
+    theLine.style.width = `${liner.width}%`;
+    theLine.style.height = `${liner.height}px`;
+    theLine.style.backgroundColor = `${liner.backgroundColor}`;
+    theLine.style.margin = `${liner.height*10}px`;
+
+    //즉, 오브젝트는 자료를 저장해놓고 꺼내 쓰는 용도랄까
+    const ShowSize = document.querySelector(".showSize");
+
+    function Size(width, height, fontSize){
+      this.width  = width,
+      this.height = height,
+      this.fontSize = fontSize,
+      this.showSize = function(){
+        ShowSize.textContent = `규격은 ${width}x${height}입니다.`;
+        ShowSize.style.fontSize = `${fontSize}px`;
+        console.log(`규격은 ${width}x${height}입니다.`);
+      };
+    }
+
+
+ const Size1 = new Size(50, 50, 20);
+ const Size2 = new Size(120, 90, 30);
+ const Size3 = new Size(960, 500, 40);
+
+ console.log(Size1, Size2, Size3);
+
+ Size3.showSize();
+
+  </script>
+</body>
+
+</html>
