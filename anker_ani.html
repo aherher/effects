@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>anker</title>
+  <style>
+
+  </style>
+</head>
+<style>
+  ul {
+    display: flex;
+    gap: 30px;
+  }
+
+  ul li a {
+    font-size: 40px;
+  }
+
+  .box {
+    height: 100vh;
+  }
+
+  #tab01 {
+    background-color: #000;
+  }
+
+  #tab02 {
+    background-color: #ddd;
+  }
+
+  #tab03 {
+    background-color: red;
+  }
+
+  #tab04 {
+    background-color: green;
+  }
+
+  #tab05 {
+    background-color: yellow;
+  }
+
+  #tab06 {
+    background-color: blue;
+  }
+</style>
+
+<body>
+
+  <ul>
+    <li><a href="#tab01">tab01</a></li>
+    <li><a href="#tab02">tab02</a></li>
+    <li><a href="#tab03">tab03</a></li>
+    <li><a href="#tab04">tab04</a></li>
+    <li><a href="#tab05">tab05</a></li>
+    <li><a href="#tab06">tab06</a></li>
+  </ul>
+
+  <div id="tab01" class="box"></div>
+  <div id="tab02" class="box"></div>
+  <div id="tab03" class="box"></div>
+  <div id="tab04" class="box"></div>
+  <div id="tab05" class="box"></div>
+  <div id="tab06" class="box"></div>
+
+  <script>
+    const tabs = document.querySelectorAll("ul li");
+
+    tabs.forEach(item => {
+      item.addEventListener("click", (e) => {
+        let link = e.target.getAttribute("href");
+        let section = document.querySelector(link);
+        let linkposition = section.getBoundingClientRect().top + window.scrollY; //절대좌표 (구형까지 고려하면 pageYOffset)
+        window.scrollTo({
+          top: linkposition,
+          behavior: "smooth"
+        })
+        e.preventDefault();
+      })
+    });
+  </script>
+</body>
+
+</html>
