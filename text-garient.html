@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>text-gradient</title>
+  <style>
+
+  </style>
+</head>
+
+<style>
+  body {
+    background-color: #000;
+    height: 200vh;
+  }
+
+  .testBox {
+    height: 400px;
+    background-image: url(https://interactive-examples.mdn.mozilla.net/media/examples/hand.jpg);
+    background-attachment: fixed;
+  }
+
+  p {
+    color: #fff;
+    font-size: 8rem;
+    font-weight: 900
+  }
+
+  .linear1 {
+    background-image: linear-gradient(90deg, #0082f3, #0ef0ea);
+    filter: saturate(150%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .linear2 {
+    background-image: linear-gradient(90deg, #e400ff, #f50d5b);
+    filter: saturate(150%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .imagebackground {
+    background-image: url(https://interactive-examples.mdn.mozilla.net/media/examples/hand.jpg);
+    background-attachment: fixed;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+
+<body>
+  <div>
+    <p>Lorem ipsum <span class="linear1">dolor</span> sit amet <span class="linear2">consectetur</span> adipisicing elit. Numquam,
+      <span class="imagebackground"> incidunt modi. Pariatur nulla</span>, qui facere,
+    </p>
+  </div>
+  <div class="testBox"></div>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mix-blend-mode</title>
+  <style>
+
+  </style>
+</head>
+
+<style>
+  body {
+    background-color: #000;
+  }
+
+  .wrap {
+    height: 100vh;
+    padding: 80vh 0;
+    position: relative;
+
+  }
+
+  .image {
+    text-align: center;
+  }
+
+  .text {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    font-size: 250px;
+    font-weight: 700;
+    text-align: center;
+    top: 50%;
+    /* transform: translateY(-50%); */
+    mix-blend-mode: difference
+  }
+
+  .text span {
+    background-image: linear-gradient(90deg, #0082f3, #0ef0ea);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <div class="image"><img src="images/mix.png" alt=""></div>
+    <p class="text">It's <span>all</span> you</p>
+  </div>
+  <script>
+    const text = document.querySelector(".text");
+
+    function textTranslate() {
+      let windowScroll = window.scrollY / 2;
+      console.log(windowScroll);
+      text.style.transform = `translateY(${-windowScroll}px)`;
+    }
+
+    window.addEventListener("scroll", () => {
+      textTranslate()
+    })
+  </script>
+</body>
+
+</html>
