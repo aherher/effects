@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/scroll,height.css">
+</head>
+
+<body>
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="header__head">
+      <h1>Logo</h1>
+      <nav>
+        <ul class="header__menu">
+          <li><a href="#!">
+              <span class="front">재단소개</span>
+              <span class="back">재단소개</span>
+            </a></li>
+          <li><a href="#!">
+              <span class="front">사업안내</span>
+              <span class="back">사업안내</span>
+            </a></li>
+          <li><a href="#!">
+              <span class="front">재단소식</span>
+              <span class="back">재단소식</span>
+            </a></li>
+          <li><a href="#!">
+              <span class="front">자료실</span>
+              <span class="back">자료실</span>
+            </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- 헤더 끝 -->
+
+  <!-- 비주얼 -->
+  <div class="visual">
+    <img src="images/bg.png" alt="">
+  </div>
+  <!-- 비주얼끝 -->
+
+  <!-- 컨텐츠 -->
+  <div class="contents">
+    <ul class="contents__menus">
+      <li><a href="#!">자동차 사이버보안</a></li>
+      <li><a href="#!">자동차 제어기</a></li>
+      <li><a href="#!">사이버보안</a></li>
+      <li><a href="#!">SDV</a></li>
+    </ul>
+    <div class="blank">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita quisquam ipsa, similique odit, minus perspiciatis vitae officiis dolorum animi, nostrum placeat magnam. Tenetur ipsa corporis animi vero, recusandae blanditiis odio?
+    </div>
+  </div>
+  <!-- 컨텐츠 끝 -->
+
+</body>
+<script>
+  const contents = document.querySelector(".contents");
+  const $text = document.querySelector(".wheel");
+  const menus = document.querySelector(".contents__menus");
+  let contents_offset = contents.offsetTop;
+  let yPos = 0;
+  let windowScoll = window.scrollY;
+
+  function movingScroll() {
+    yPos += 25;
+    window.scrollTo({
+      top: yPos
+    });
+    let anima = requestAnimationFrame(movingScroll);
+    if (yPos >= contents_offset) {
+      cancelAnimationFrame(anima);
+      yPos = 0;
+    };
+  }
+
+  function fixer(s) {
+    if (s >= contents_offset) {
+      menus.classList.add("fixed");
+    } else if (s <= contents_offset + 270) {
+      menus.classList.remove("fixed");
+    };
+  };
+
+  addEventListener("mousewheel", e => {
+    // $text.innerHTML = e.deltaY > 0 ? "Scroll Down" : "Scroll Up";
+    windowScoll = window.scrollY;
+    console.log(windowScoll);
+    if (e.deltaY > 0) {
+      // console.log("Scroll Down");
+      if (windowScoll < 10) {
+        movingScroll();
+      };
+      fixer(windowScoll);
+    } else {
+      fixer(windowScoll);
+    }
+  });
+</script>
+
+</html>
